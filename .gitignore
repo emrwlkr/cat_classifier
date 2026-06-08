@@ -1,0 +1,24 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Data and models — add your own images; never commit them
+data/
+models/
+*.joblib
+
+# SLURM logs
+slurm/output/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/
+# To share workspace settings with collaborators, you can later commit:
+# !.vscode/settings.json
