@@ -1,8 +1,7 @@
-# cat-classifier
+# Research software engineering class: cat-classifier
 
-A minimal sklearn classifier that distinguishes between two cats from photos.
-Built as a teaching example for a VS Code + Git + GitHub workshop — the focus is
-on clean repo structure, not ML sophistication.
+A minimal sklearn classifier that distinguishes between two cats from photos
+Built as a teaching example for a VS Code + Git + GitHub workshop
 
 ---
 
@@ -17,39 +16,30 @@ pip install -r requirements.txt
 
 ## Environment setup (Oxford BMRC / any module-based HPC)
 
-The venv's Python requires `libffi` from the module system. Source
-`startup_script.sh` instead of activating the venv directly:
+Source `startup_script.sh` instead of activating the venv directly:
+Allows for venv activation and building required modules
 
 ```bash
 source startup_script.sh
 ```
 
 This runs `module purge`, loads `Python/3.11.3-GCCcore-12.3.0`, then activates
-`.venv`. The SLURM scripts already do this for you.
+`.venv`. 
 
-## Add your data
-
-Place JPEG photos under:
-
-```
-data/cat_a/   ← photos of cat A
-data/cat_b/   ← photos of cat B
-```
-
-The `data/` directory is gitignored — photos are never committed.
+Run at the start of srun or put at the start of any bash script
 
 ## Train
 
 ```bash
 python cat_classifier_train.py
 # or override defaults:
-python cat_classifier_train.py --data-dir data/ --model-out models/cat_classifier.joblib
+python cat_classifier_train.py --data-dir data/
 ```
 
 ## Predict
 
 ```bash
-python cat_classifier_inf.py --image data/cat_a/photo1.jpeg
+python cat_classifier_inf.py --image data/fluff/photo1.jpeg
 # → Predicted: cat_a (87% confident)
 ```
 
@@ -57,7 +47,7 @@ python cat_classifier_inf.py --image data/cat_a/photo1.jpeg
 
 ```bash
 sbatch slurm/train.sh
-sbatch slurm/infer.sh --image data/cat_a/photo1.jpeg
+sbatch slurm/infer.sh --image data/fluff/photo1.jpeg
 ```
 
 Logs land in `slurm/output/` (gitignored).
