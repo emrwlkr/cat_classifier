@@ -26,6 +26,15 @@ source startup_script.sh
 This runs `module purge`, loads `Python/3.11.3-GCCcore-12.3.0`, then activates
 `.venv`. 
 
+contents of bash script:
+```
+#!/usr/bin/bash
+module purge
+module load Python/3.11.3-GCCcore-12.3.0
+
+source /gpfs3/well/{GROUP_NAME}/users/{USER_NAME}/cat_classifier/.venv/bin/activate
+```
+
 Run at the start of srun or put at the start of any bash script
 
 ## Train
@@ -68,3 +77,8 @@ The **entry points** (top-level `*.py` scripts) are thin — they handle CLI
 arguments and orchestrate calls into the **package** (`cat_classifier/`).
 The package contains all reusable logic and can be imported by notebooks or
 other scripts without pulling in any CLI machinery.
+
+## NB included in this repo for teaching purposes but normally would be in gitignore
+data
+slurm
+startup_script.sh
