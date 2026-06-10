@@ -40,8 +40,9 @@ Then clone your fork using the SSH URL you copied:
 
 ```bash
 git clone git@github.com:<your-username>/cat_classifier.git
-cd cat_classifier
 ```
+
+(on vs code>  > command palette > open folder > navigate to the cat_classifier folder you just cloned)
 
 ---
 
