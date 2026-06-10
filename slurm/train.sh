@@ -1,12 +1,7 @@
-#!/usr/bin/env bash
+#!/bin/bash
 #SBATCH --job-name=cat-train
-#SBATCH --time=00:10:00
-#SBATCH --mem=2G
-#SBATCH --cpus-per-task=1
+#SBATCH --partition=short
 #SBATCH --output=slurm/output/train_%j.out
-#SBATCH --error=slurm/output/train_%j.err
-
-set -euo pipefail
 
 source startup_script.sh
 

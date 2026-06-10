@@ -4,19 +4,17 @@ __pycache__/
 *.pyc
 *.pyo
 
-# Data and models — add your own images; never commit them
-data/
+# Data and models 
+#data/
 models/
 *.joblib
 
 # SLURM logs
 slurm/output/
+# slurm/
 
 # Jupyter
 .ipynb_checkpoints/
-
-# macOS
-.DS_Store
 
 # VS Code
 .vscode/
