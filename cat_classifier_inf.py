@@ -6,7 +6,6 @@ import typer
 
 from cat_classifier import CatClassifier, extract_features
 
-
 def main(
     image: Path = typer.Option(..., help="Path to the input image."),
     model: Path = typer.Option(Path("models/cat_classifier.joblib"), help="Path to a trained model file."),
