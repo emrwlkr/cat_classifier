@@ -29,7 +29,8 @@ def extract_features(path: str | Path) -> np.ndarray:
 
     img_resized = img.resize(_RESIZE)
     arr = np.asarray(img_resized, dtype=np.float32)  # shape (256, 256, 3)
+    brightness = arr.mean()
 
     mean_r, mean_g, mean_b = arr[:, :, 0].mean(), arr[:, :, 1].mean(), arr[:, :, 2].mean()
 
-    return np.array([mean_r, mean_g, mean_b, width_orig, height_orig, aspect_ratio], dtype=np.float64)
+    return np.array([mean_r, mean_g, mean_b, width_orig, height_orig, aspect_ratio, brightness], dtype=np.float64)
